@@ -15,7 +15,7 @@ func GetURLVars(schema string, url string) (map[string]string, error) {
 		return nil, errors.New("URL does not match schema")
 	}
 
-	var vars map[string]string
+	vars := make(map[string]string)
 
 	for i, part := range schemaParts {
 		if !strings.HasPrefix(part, "{") || !strings.HasSuffix(part, "}") {
